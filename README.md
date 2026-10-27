@@ -3,6 +3,8 @@
 
 Goldcoin is a modern, full-stack MERN web application engineered to eliminate the awkwardness and mathematical complexity of shared finances. Beyond basic expense splitting, Goldcoin features an algorithmic **Min-Cash-Flow Debt Simplification Engine**, an interactive **Real-Time Settle-Up Calculator**, and a unique **Multi-Day Vacation Trip Clustering** ledger that consolidates distinct daily circles into a unified, minimal-transaction settlement plan.
 
+🎥 **Video Demonstration**: [Watch the Walkthrough Demo on Google Drive](https://drive.google.com/file/d/1lR5xmi2MPxNP2Hp5ry0xj-l9yNO7--S-/view?usp=sharing)
+
 ---
 
 ## 📌 Problem Statement
@@ -203,6 +205,7 @@ The application is fully deployed and accessible in production:
 | **Frontend Web App** | **Vercel** | **[https://goldcoin-expense-splitter-sjwr.vercel.app/](https://goldcoin-expense-splitter-sjwr.vercel.app/)** | ✅ Live |
 | **Backend REST API** | **Render** | [https://goldcoin-expense-splitter.onrender.com/api](https://goldcoin-expense-splitter.onrender.com/api) | ✅ Live |
 | **Health Check API** | **Render** | [https://goldcoin-expense-splitter.onrender.com/api/health](https://goldcoin-expense-splitter.onrender.com/api/health) | ✅ Active |
+| **Demo Video Walkthrough** | **Google Drive** | **[Watch Demo Video](https://drive.google.com/file/d/1lR5xmi2MPxNP2Hp5ry0xj-l9yNO7--S-/view?usp=sharing)** | 🎬 Available |
 
 ### Accessing & Testing the Live Application
 1. **Open the Application**: Navigate to **[https://goldcoin-expense-splitter-sjwr.vercel.app/](https://goldcoin-expense-splitter-sjwr.vercel.app/)** in any modern web browser.
