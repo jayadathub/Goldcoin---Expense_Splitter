@@ -1,0 +1,14 @@
+{
+  "name": "goldcoin",
+  "version": "1.0.0",
+  "description": "> **Intelligent Shared Expense & Multi-Day Trip Debt Resolution Platform**",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -n \"backend,frontend\" -c \"blue,green\" \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="goldOuter" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7" />
+      <stop offset="30%" stop-color="#f59e0b" />
+      <stop offset="70%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <linearGradient id="goldInner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb" />
+      <stop offset="50%" stop-color="#fde68a" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <filter id="coinShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#78350f" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Outer Rim with Drop Shadow -->
+  <circle cx="32" cy="32" r="30" fill="url(#goldOuter)" filter="url(#coinShadow)" />
+
+  <!-- Outer Border Ridge -->
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#78350f" stroke-width="1" stroke-dasharray="2 3" opacity="0.6" />
+
+  <!-- Inner Plate -->
+  <circle cx="32" cy="32" r="24" fill="url(#goldInner)" stroke="#b45309" stroke-width="1.5" />
+
+  <!-- Inner Coin Emboss / Emblem -->
+  <!-- Stylized Elegant "G" / Coin Star -->
+  <path d="M32 14 L34.5 24 L44 26 L36.5 32 L39 42 L32 36 L25 42 L27.5 32 L20 26 L29.5 24 Z" fill="#b45309" opacity="0.85" />
+  <circle cx="32" cy="32" r="6" fill="#fffbeb" stroke="#78350f" stroke-width="1" />
+</svg>
