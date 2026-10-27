@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Base Axios instance
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_URL || (import.meta.env.PROD ? 'https://goldcoin-expense-splitter.onrender.com/api' : 'http://localhost:5000/api'),
   withCredentials: true, // Send and receive cookies
 });
 
