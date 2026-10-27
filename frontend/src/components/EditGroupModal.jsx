@@ -53,7 +53,7 @@ export default function EditGroupModal({ group, onClose, onGroupUpdated, onGroup
       }
       onClose();
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to delete group.');
+      setError(err.response?.data?.message || 'Failed to delete group. Details: ${err.response?.data?.message || err.message}');
     } finally {
       setDeleteLoading(false);
     }

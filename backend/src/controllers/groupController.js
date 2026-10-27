@@ -220,8 +220,9 @@ export const deleteGroup = async (req, res) => {
     }
 
     // Only group creator or members can delete
-    const isCreator = group.createdBy && group.createdBy.toString() === req.user._id.toString();
-    const isMember = group.members.some((m) => m.toString() === req.user._id.toString());
+    const isCreator = group.createdBy && ((group.createdBy._id ? group.createdBy._id.toString() : group.createdBy.toString()) === req.user._id.toString());
+    const userId = req.user._id.toString();
+    const isMember = Array.isArray(group.members) && group.members.some((m) => (m && m._id ? m._id.toString() : (m ? m.toString() : "")) === userId);
 
     if (!isCreator && !isMember) {
       return res.status(403).json({ message: 'Not authorized to delete this group' });
