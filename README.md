@@ -5,31 +5,6 @@ Goldcoin is a modern, full-stack MERN web application engineered to eliminate th
 
 ---
 
-
----
-
-## 🚀 Live Application & Deployment Links
-
-The application is deployed live in production and accessible via the following links:
-
-| Service | Deployment Platform | Live URL | Status |
-| :--- | :--- | :--- | :--- |
-| **Frontend Web App** | **Vercel** | [https://goldcoin-expense-splitter-sjwr.vercel.app/](https://goldcoin-expense-splitter-sjwr.vercel.app/) | ✅ Live |
-| **Backend REST API** | **Render** | [https://goldcoin-expense-splitter.onrender.com/api](https://goldcoin-expense-splitter.onrender.com/api) | ✅ Live |
-| **API Health Check** | **Render** | [https://goldcoin-expense-splitter.onrender.com/api/health](https://goldcoin-expense-splitter.onrender.com/api/health) | ✅ Active |
-
-### How to Access & Test the Application:
-1. **Visit the Live Application**: Open [https://goldcoin-expense-splitter-sjwr.vercel.app/](https://goldcoin-expense-splitter-sjwr.vercel.app/) in any modern desktop or mobile browser.
-2. **Account Registration / Login**:
-   - Click **Register** to create a new traveler account (or sign in to an existing account).
-   - Sessions are secured with JWT and persisted across page refreshes.
-3. **Core Workflows to Explore**:
-   - **Circles & Outings**: Create a daily expense circle, invite friends, and record bills with equal, exact, percentage, or shares-based splits.
-   - **Inline Expense Editor**: Edit amounts, notes, or split participants with an instant ledger audit update.
-   - **Multi-Day Trip Clusters**: Combine multiple daily circles into a single vacation cluster with sharp photo backdrops.
-   - **Per-User Trip Breakdown**: In the *Overall Trip Net Balances* tab, click on any traveler to see the detailed breakdown of all trips contributing to their balance.
-   - **Smart Debt Simplification & Settle Up**: Navigate to *Simplified Debts*, click *Settle Up*, and enter partial payment amounts to watch the live real-time 'still to be settled' calculation in action.
-
 ## Problem Statement
 
 Splitting expenses among friends, flatmates, and travel groups is traditionally fraught with manual calculations, circular debts, and multi-day disorganization. 
@@ -180,7 +155,26 @@ npm run dev
 
 ---
 
-## Deployment Guide
+## Deployment Guide & Live Access
+
+### 🌐 Live Production Links
+The application is fully deployed and accessible in production:
+
+| Component | Platform | Live URL | Status |
+| :--- | :--- | :--- | :--- |
+| **Frontend Application** | **Vercel** | **[https://goldcoin-expense-splitter-sjwr.vercel.app/](https://goldcoin-expense-splitter-sjwr.vercel.app/)** | ✅ Live |
+| **Backend REST API** | **Render** | [https://goldcoin-expense-splitter.onrender.com/api](https://goldcoin-expense-splitter.onrender.com/api) | ✅ Live |
+| **Health Check API** | **Render** | [https://goldcoin-expense-splitter.onrender.com/api/health](https://goldcoin-expense-splitter.onrender.com/api/health) | ✅ Active |
+
+### Accessing & Testing the Live Application
+1. **Open the Application**: Navigate to **[https://goldcoin-expense-splitter-sjwr.vercel.app/](https://goldcoin-expense-splitter-sjwr.vercel.app/)** in any modern web browser.
+2. **Authentication**: Click **Register** to create a test user, or sign in to an existing account.
+3. **Core Workflows to Test**:
+   - **Circles & Expenses**: Create a new circle, add an expense, and test Equal, Exact, Percentage, or Shares splitting.
+   - **Inline Expense Editing**: Click an expense to modify values on the fly.
+   - **Multi-Day Trip Clusters**: View combined vacation clusters with custom sharp image backdrops.
+   - **Per-User Trip Breakdown**: Click any traveler in *Overall Trip Net Balances* to view their itemized trip breakdown modal.
+   - **Debt Simplification & Settle Up**: Open *Simplified Debts*, click *Settle Up*, and test real-time partial settlement calculations.
 
 ### Deploy Backend (Render / Railway)
 1. Push your repository to GitHub.
@@ -196,9 +190,10 @@ npm run dev
 3. Framework Preset: `Vite`.
 4. Build Command: `npm run build`.
 5. Output Directory: `dist`.
-6. Configure `VITE_API_URL` to point to your deployed backend URL.
+6. Live Frontend URL: **https://goldcoin-expense-splitter-sjwr.vercel.app/**
 
 ---
+
 
 ## License & Academic Submission
 Developed for the **End-Term Software Project (October 2026)**.
