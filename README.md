@@ -5,6 +5,31 @@ Goldcoin is a modern, full-stack MERN web application engineered to eliminate th
 
 ---
 
+
+---
+
+## 🚀 Live Application & Deployment Links
+
+The application is deployed live in production and accessible via the following links:
+
+| Service | Deployment Platform | Live URL | Status |
+| :--- | :--- | :--- | :--- |
+| **Frontend Web App** | **Vercel** | [https://goldcoin-expense-splitter-sjwr.vercel.app/](https://goldcoin-expense-splitter-sjwr.vercel.app/) | ✅ Live |
+| **Backend REST API** | **Render** | [https://goldcoin-expense-splitter.onrender.com/api](https://goldcoin-expense-splitter.onrender.com/api) | ✅ Live |
+| **API Health Check** | **Render** | [https://goldcoin-expense-splitter.onrender.com/api/health](https://goldcoin-expense-splitter.onrender.com/api/health) | ✅ Active |
+
+### How to Access & Test the Application:
+1. **Visit the Live Application**: Open [https://goldcoin-expense-splitter-sjwr.vercel.app/](https://goldcoin-expense-splitter-sjwr.vercel.app/) in any modern desktop or mobile browser.
+2. **Account Registration / Login**:
+   - Click **Register** to create a new traveler account (or sign in to an existing account).
+   - Sessions are secured with JWT and persisted across page refreshes.
+3. **Core Workflows to Explore**:
+   - **Circles & Outings**: Create a daily expense circle, invite friends, and record bills with equal, exact, percentage, or shares-based splits.
+   - **Inline Expense Editor**: Edit amounts, notes, or split participants with an instant ledger audit update.
+   - **Multi-Day Trip Clusters**: Combine multiple daily circles into a single vacation cluster with sharp photo backdrops.
+   - **Per-User Trip Breakdown**: In the *Overall Trip Net Balances* tab, click on any traveler to see the detailed breakdown of all trips contributing to their balance.
+   - **Smart Debt Simplification & Settle Up**: Navigate to *Simplified Debts*, click *Settle Up*, and enter partial payment amounts to watch the live real-time 'still to be settled' calculation in action.
+
 ## Problem Statement
 
 Splitting expenses among friends, flatmates, and travel groups is traditionally fraught with manual calculations, circular debts, and multi-day disorganization. 
