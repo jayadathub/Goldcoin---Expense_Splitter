@@ -1,3 +1,6 @@
+import { Expense } from '../models/Expense.js';
+import { Settlement } from '../models/Settlement.js';
+import { Cluster } from '../models/Cluster.js';
 import { Group } from '../models/Group.js';
 import { User } from '../models/User.js';
 
@@ -204,3 +207,40 @@ export const updateGroup = async (req, res) => {
   }
 };
 
+
+// @route   DELETE /api/groups/:id
+// @desc    Delete a group, its expenses, settlements, and remove from any trip clusters
+export const deleteGroup = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const group = await Group.findById(id);
+
+    if (!group) {
+      return res.status(404).json({ message: 'Group not found' });
+    }
+
+    // Only group creator or members can delete
+    const isCreator = group.createdBy && group.createdBy.toString() === req.user._id.toString();
+    const isMember = group.members.some((m) => m.toString() === req.user._id.toString());
+
+    if (!isCreator && !isMember) {
+      return res.status(403).json({ message: 'Not authorized to delete this group' });
+    }
+
+    // 1. Delete all expenses associated with this group
+    await Expense.deleteMany({ groupId: id });
+
+    // 2. Delete all settlements associated with this group
+    await Settlement.deleteMany({ groupId: id });
+
+    // 3. Remove group reference from any trip clusters
+    await Cluster.updateMany({ groups: id }, { $pull: { groups: id } });
+
+    // 4. Delete the group itself
+    await Group.findByIdAndDelete(id);
+
+    res.json({ message: 'Group and its associated records deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { updateGroup } from '../services/api.js';
+import { updateGroup, deleteGroup } from '../services/api.js';
 
-export default function EditGroupModal({ group, onClose, onGroupUpdated }) {
+export default function EditGroupModal({ group, onClose, onGroupUpdated, onGroupDeleted }) {
   const [name, setName] = useState(group.name || '');
   const [description, setDescription] = useState(group.description || '');
   const [date, setDate] = useState(
@@ -10,6 +10,7 @@ export default function EditGroupModal({ group, onClose, onGroupUpdated }) {
       : new Date().toISOString().split('T')[0]
   );
   const [loading, setLoading] = useState(false);
+  const [deleteLoading, setDeleteLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
@@ -28,12 +29,33 @@ export default function EditGroupModal({ group, onClose, onGroupUpdated }) {
         description: description.trim(),
         date,
       });
-      onGroupUpdated();
+      if (onGroupUpdated) onGroupUpdated();
       onClose();
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to update group details.');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    const confirmDelete = window.confirm(
+      `Are you sure you want to permanently delete "${group.name}"?\n\nAll recorded expenses, splits, and settlements in this group will be deleted. This cannot be undone.`
+    );
+    if (!confirmDelete) return;
+
+    try {
+      setDeleteLoading(true);
+      setError('');
+      await deleteGroup(group._id);
+      if (onGroupDeleted) {
+        onGroupDeleted();
+      }
+      onClose();
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to delete group.');
+    } finally {
+      setDeleteLoading(false);
     }
   };
 
@@ -99,21 +121,32 @@ export default function EditGroupModal({ group, onClose, onGroupUpdated }) {
             />
           </div>
 
-          <div className="flex justify-end space-x-2.5 pt-3 border-t border-[#ece4d6]">
+          <div className="flex items-center justify-between pt-3 border-t border-[#ece4d6]">
             <button
               type="button"
-              onClick={onClose}
-              className="px-3.5 py-1.5 border border-[#d8cdbc] text-stone-700 rounded-lg hover:bg-[#ede5d6] text-xs font-medium"
+              onClick={handleDelete}
+              disabled={deleteLoading || loading}
+              className="text-rose-700 hover:text-rose-800 text-xs font-semibold px-2 py-1.5 rounded-lg transition underline disabled:opacity-50"
             >
-              Cancel
+              {deleteLoading ? 'Deleting...' : 'Delete Group'}
             </button>
-            <button
-              type="submit"
-              disabled={loading}
-              className="px-4 py-1.5 bg-stone-800 hover:bg-stone-900 text-[#fbf9f4] rounded-lg text-xs font-medium transition disabled:bg-stone-400"
-            >
-              {loading ? 'Saving...' : 'Save Changes'}
-            </button>
+
+            <div className="flex space-x-2">
+              <button
+                type="button"
+                onClick={onClose}
+                className="px-3.5 py-1.5 border border-[#d8cdbc] text-stone-700 rounded-lg hover:bg-[#ede5d6] text-xs font-medium"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                disabled={loading || deleteLoading}
+                className="px-4 py-1.5 bg-stone-800 hover:bg-stone-900 text-[#fbf9f4] rounded-lg text-xs font-medium transition disabled:bg-stone-400"
+              >
+                {loading ? 'Saving...' : 'Save Changes'}
+              </button>
+            </div>
           </div>
         </form>
       </div>

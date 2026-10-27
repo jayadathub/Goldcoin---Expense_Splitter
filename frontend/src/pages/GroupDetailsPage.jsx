@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar.jsx';
 import BalanceSummary from '../components/BalanceSummary.jsx';
 import SimplifiedDebts from '../components/SimplifiedDebts.jsx';
@@ -17,6 +17,7 @@ import {
 
 export default function GroupDetailsPage() {
   const { id: groupId } = useParams();
+  const navigate = useNavigate();
 
   const [group, setGroup] = useState(null);
   const [memberBalances, setMemberBalances] = useState([]);
@@ -313,6 +314,7 @@ export default function GroupDetailsPage() {
           group={group}
           onClose={() => setShowEditModal(false)}
           onGroupUpdated={fetchAllGroupData}
+          onGroupDeleted={() => navigate('/dashboard')}
         />
       )}
     </div>

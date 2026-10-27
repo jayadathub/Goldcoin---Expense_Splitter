@@ -28,6 +28,7 @@ export const getGroupById = (groupId) => API.get(`/groups/${groupId}`);
 export const getRecentMembers = () => API.get('/groups/recent-members');
 export const createGroup = (data) => API.post('/groups', data);
 export const updateGroup = (groupId, data) => API.put(`/groups/${groupId}`, data);
+export const deleteGroup = (groupId) => API.delete(`/groups/${groupId}`);
 export const inviteMember = (groupId, data) => API.post(`/groups/${groupId}/invite`, data);
 
 // Expenses API calls

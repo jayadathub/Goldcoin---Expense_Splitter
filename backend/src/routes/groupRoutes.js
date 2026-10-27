@@ -6,6 +6,7 @@ import {
   inviteMember,
   updateGroup,
   getRecentMembers,
+  deleteGroup,
 } from '../controllers/groupController.js';
 import { protectRoute } from '../middleware/auth.js';
 
@@ -18,6 +19,7 @@ router.get('/', getMyGroups);
 router.get('/recent-members', getRecentMembers);
 router.get('/:id', getGroupById);
 router.put('/:id', updateGroup);
+router.delete('/:id', deleteGroup);
 router.post('/:id/invite', inviteMember);
 
 export default router;
